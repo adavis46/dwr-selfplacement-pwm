@@ -1,0 +1,67 @@
+<!-- Required for any jQuery operations -->
+<script src="http://www.olemiss.edu/js/jquery.js" type="text/JavaScript"></script>
+<!-- Required for expand/collapse operations -->
+<script src="http://www.olemiss.edu/js/expand.js" type="text/JavaScript"></script>
+<script type="text/javascript">// <![CDATA[
+function count(){
+
+   var amount = 0
+   var Level3="Based on your responses, we believe the minor in Professional Writing may help you reach your professional or career goals. Want to learn more? Contact the academic advisor for the minor, Dr. Alice Johnston Myatt; email her at amyatt1 [at] olemiss.edu."
+   var Level2="You may be a good fit for the minor in Professional Writing, but we recommend that you make an appointment to discuss this decision with the academic advisor for the minor, Dr. Alice Johnston Myatt; email her at amyatt1 [at] olemiss.edu."
+   var Level1="Based on your responses, you should make an appointment to discuss the work required by the minor in Professional Writing with Dr. Alice Johnston Myatt, academic advisor before electing this minor; email her at amyatt1 [at] olemiss.edu."
+
+  if 
+	  ((!document.field.hit[9].checked)&&(!document.field.hit[0].checked)
+	  &&(!document.field.hit[1].checked)&&(!document.field.hit[2].checked)
+	  &&(!document.field.hit[3].checked)&&(!document.field.hit[4].checked)
+	  &&(!document.field.hit[5].checked)&&(!document.field.hit[6].checked)
+	  &&(!document.field.hit[7].checked)&&(!document.field.hit[8].checked)
+	  ) 
+	  {
+         alert("Check the boxes in the given statements (or) None of the above applies");
+      }
+	else
+	{
+      if 
+	  ((document.field.hit[9].checked)&&((document.field.hit[0].checked)
+	  ||(document.field.hit[1].checked)||(document.field.hit[2].checked)
+	  ||(document.field.hit[3].checked)||(document.field.hit[4].checked)
+	  ||(document.field.hit[5].checked)||(document.field.hit[6].checked)
+	  ||(document.field.hit[7].checked)||(document.field.hit[8].checked)
+	  )) 
+	  {
+         alert("Select either -- None of the above applies (or) boxes above it , but not both");
+      }
+	else
+      {	
+		for(i=0;i<=9;i++)
+		{
+			if (document.field.hit[i].checked) 
+			{
+			amount ++
+			}
+		}
+    
+			if(amount>=7) 
+			{
+			document.getElementById("seenum").value = Level3
+			}
+
+			else if(amount<=3)
+			{
+			document.getElementById("seenum").value = Level1
+			}
+			
+			else
+			{
+			document.getElementById("seenum").value= Level2
+			}
+		}
+	}
+}
+// ]]></script>
+<h3 align="center">Is the minor in professional writing a good fit for you?</h3>
+<p>To help you decide, check all of the boxes that apply to you, and then Submit when you have finished.</p>
+<hr /><form name="field"><input name="hit" id="1" type="checkbox" /> <label for="1">I am interested in learning more about project management, collaborative writing, and organizational goal-setting.</label><br /> <br /> <input name="hit" id="2" type="checkbox" /> <label for="2">I am open to working with others, and I am comfortable if others to read or critique my writing.</label><br /> <br /> <input name="hit" id="3" type="checkbox" /> <label for="3">I am interested in digital writing environments.</label><br /> <br /> <input name="hit" id="4" type="checkbox" /> <label for="4">In my previous writing classes, I always enjoyed writing stories and narratives. </label><br /> <br /> <input name="hit" id="5" type="checkbox" /> <label for="5">In my previous writing classes, I always enjoyed analysis and research writing. </label><br /> <br /> <input name="hit" id="6" type="checkbox" /> <label for="6">I would like to gain experience in different communication and composition scenarios that would further my career goals. </label><br /> <br /> <input name="hit" id="7" type="checkbox" /> <label for="7">I am looking for a minor that requires engaging with real-world projects.</label><br /> <br /> <input name="hit" id="8" type="checkbox" /> <label for="8">I enjoy learning about and using new technology.</label><br /> <br /> <input name="hit" id="9" type="checkbox" /> <label for="9">I am interested in applying my writing skills in settings outside the classroom.</label> <br /> <br /><center><input name="hit" id="none" type="checkbox" /> <label for="none">None of the above applies</label></center><center><hr /><textarea disabled="disabled" id="seenum" rows="8" cols="60" type="text" value="" size="15"></textarea><br />
+<p align="center">Results of the Self-Placement</p>
+</center><br /><center><input onclick="count();" type="button" value="Submit" /> <input type="reset" value="Restart" /></center></form><center><strong>Please remember this!</strong><br /><br />Whatever you choose, your professors want you to succeed.<br /> Be honest with yourself and choose wisely.</center>
